@@ -9,6 +9,7 @@ public class Movement : MonoBehaviour
     public float gravity = -10f;
     public float speed = 10f;
     public bool isGrounded;
+    public AudioSource footstepsAudio;
 
     public Transform groundCheck;
     public float groundDistance = 0.5f;
@@ -43,5 +44,14 @@ public class Movement : MonoBehaviour
 
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
+
+        if (move != Vector3.zero)
+        {
+            footstepsAudio.enabled = true;
+        }
+        else
+        {
+            footstepsAudio.enabled = false;
+        }
     }
 }
