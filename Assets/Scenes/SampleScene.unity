@@ -2000,7 +2000,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 816535707}
-  - {fileID: 628581045}
+  - {fileID: 1153027883}
   - {fileID: 85727862}
   - {fileID: 590794744}
   - {fileID: 1123271856}
@@ -5599,11 +5599,10 @@ GameObject:
   - component: {fileID: 628581048}
   - component: {fileID: 628581047}
   - component: {fileID: 628581046}
-  - component: {fileID: 628581050}
   - component: {fileID: 628581049}
   m_Layer: 0
   m_Name: TV Cabinet
-  m_TagString: Pushable
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5615,14 +5614,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 628581044}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -22.04, y: 1.62, z: 5.3}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -1.54, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 850458111}
-  m_Father: {fileID: 215858994}
-  m_RootOrder: 1
+  m_Father: {fileID: 1153027883}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &628581046
 BoxCollider:
@@ -5635,7 +5634,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 7.873811, y: 2.6636577, z: 2.4039688}
+  m_Size: {x: 9.39, y: 3.41, z: 3.25}
   m_Center: {x: -0.20206976, y: 1.025178, z: -0.04093933}
 --- !u!65 &628581047
 BoxCollider:
@@ -5680,23 +5679,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   forceMagnitude: 0
   positive: 0
---- !u!114 &628581050
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 628581044}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc8ab03c0ff57a44eb1105438a4f2827, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  snapPoints: []
-  pushable: []
-  distance: 0
-  minDistance: 0
-  closestSnap: {x: 0, y: 0, z: 0}
 --- !u!1001 &639747558
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11176,6 +11158,56 @@ Transform:
   m_Father: {fileID: 451518309}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1153027882
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1153027883}
+  - component: {fileID: 1153027884}
+  m_Layer: 0
+  m_Name: Tv Cabinet
+  m_TagString: Pushable
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1153027883
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1153027882}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -21.767418, y: 3.11, z: 4.9974785}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 628581045}
+  m_Father: {fileID: 215858994}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1153027884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1153027882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc8ab03c0ff57a44eb1105438a4f2827, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  snapPoints: []
+  pushable: []
+  distance: 0
+  minDistance: 0
+  closestSnap: {x: 0, y: 0, z: 0}
 --- !u!4 &1161121778 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: aabb56ce2befedd4ca52f6122389522a, type: 3}
