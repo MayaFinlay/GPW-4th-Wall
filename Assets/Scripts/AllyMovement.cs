@@ -5,15 +5,15 @@ using UnityEngine;
 public class AllyMovement : MonoBehaviour
 {
 
-Rigidbody rb;
+    Rigidbody rb;
 
-bool moveLeft;
-bool moveRight;
-bool moveForward;
-bool moveBackward;
-float horizontalMove;
-float verticalMove;
-public float speed = 300;
+    bool moveLeft;
+    bool moveRight;
+    bool moveForward;
+    bool moveBackward;
+    float horizontalMove;
+    float verticalMove;
+    public float speed = 300;
 
     // Start is called before the first frame update
     void Start()

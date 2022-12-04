@@ -4,27 +4,30 @@ using UnityEngine;
 
 public class PlayerInteractUI : MonoBehaviour
 {
-  [SerializeField] private GameObject containerGameObject;
-  [SerializeField] private PlayerInteract playerInteract;
+	[SerializeField] private GameObject containerGameObject;	
+	[SerializeField] private PlayerInteract playerInteract;
 
-  private void Update() {
-	if (playerInteract.GetInteractableObject() != null)
+
+
+	private void Update()
 	{
-		Show();
-
+		if (playerInteract.GetInteractableObject() != null)
+		{
+			Show();					
+		}
+		else
+		{
+			Hide();
+		}
 	}
-	else {
-		Hide();
-
+		
+	private void Show()
+	{
+		containerGameObject.SetActive(true);
 	}
-  }
-  private void Show()
 
-  {
-	  containerGameObject.SetActive(true);
-  }
-  private void Hide()
-  {
-	  containerGameObject.SetActive(false);
-  }
+	private void Hide()
+	{
+		containerGameObject.SetActive(false);
+	}
 }
