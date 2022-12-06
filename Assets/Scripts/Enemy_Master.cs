@@ -4,34 +4,39 @@ using UnityEngine;
 using UnityEngine.AI;
 public class Enemy_Master : MonoBehaviour
 {
-    public GameObject Player;
+    public GameObject gridPoint;
+    public bool moving;
+    public NavMeshAgent _agent;
     public float Distance;
 
-    public bool Triggered;
-    public NavMeshAgent _agent;
+    public List<GameObject> snapPoints = new List<GameObject>();
 
     // Update is called once per frame
-    void Update()
+    void Start()
     {
-        Distance = Vector3.Distance(Player.transform.position, this.transform.position);
-        if (Distance <= 1000)
+        foreach (GameObject fooObj in GameObject.FindGameObjectsWithTag("SnapPoints"))
         {
-            Triggered = true;
-        }
-        if (Distance > 20f)
-        {
-            Triggered = false;
-
-        }
-        if (Triggered)
-        {
-            _agent.isStopped = false;
-            _agent.SetDestination(Player.transform.position);
-
-        }
-        if (!Triggered)
-        {
-            _agent.isStopped = true;
+            snapPoints.Add(fooObj);
         }
     }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            gridPoint = snapPoints[Random.Range(0, 80)];
+            Move();
+        }
+        Distance = Vector3.Distance(gridPoint.transform.position, this.transform.position);
+    }
+
+    private void Move()
+    {
+        
+        if (Distance > 0)
+        {
+            _agent.SetDestination(gridPoint.transform.position);
+        }
+    }
+
 }

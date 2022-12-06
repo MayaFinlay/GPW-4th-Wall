@@ -12,56 +12,38 @@ public class EnemyAIShoot : MonoBehaviour
     public LayerMask GroundCheck, PlayerCheck;
 
     public float health;
-    
+
+    bool hasAttacked;
 
     public float timeBetweenAttacks;
-    bool alreadyAttacked;
     public GameObject projectile;
 
-    
-    public float sightRange, attackRange;
-    public bool playerInSightRange, playerInAttackRange;
 
-    private void Awake()
+    public float sightRange;
+    public bool playerInSightRange;
+
+    private void Start()
     {
-
-        player = GameObject.Find("Target Practice").transform;
-        agent = GetComponent<NavMeshAgent>();
+        hasAttacked = false;
     }
-
-
 
     private void Update()
     {
-       
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, PlayerCheck);
-        playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, PlayerCheck);
-        if (playerInAttackRange && playerInSightRange) AttackPlayer();
-    }
-   
-
-    private void AttackPlayer()
-    {
-        
-        agent.SetDestination(transform.position);
-
-        transform.LookAt(player);
-
-        if (!alreadyAttacked)
+        if (playerInSightRange && gameObject.GetComponent<Enemy_Master>().Distance < 1.5 && hasAttacked == false)
         {
-            
-            Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
-            rb.AddForce(transform.forward * 40f, ForceMode.Impulse);
-            rb.AddForce(transform.up * 4f, ForceMode.Impulse);
-            
-
-            alreadyAttacked = true;
-            Invoke(nameof(ResetAttack), timeBetweenAttacks);
+            AttackPlayer();
+            hasAttacked = true;        
         }
     }
-    private void ResetAttack()
-    {
-        alreadyAttacked = false;
+
+    private void AttackPlayer()
+    {        
+        transform.LookAt(player);
+        
+        Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
+        rb.AddForce(transform.forward * 40f, ForceMode.Impulse);
+        rb.AddForce(transform.up * 4f, ForceMode.Impulse);
     }
 
     public void TakeDamage(int damage)
@@ -70,6 +52,7 @@ public class EnemyAIShoot : MonoBehaviour
 
         if (health <= 0) Invoke(nameof(DestroyEnemy), 0.5f);
     }
+
     private void DestroyEnemy()
     {
         Destroy(gameObject);

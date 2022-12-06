@@ -1,12 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GridSystemForPersonalComputer : MonoBehaviour
 {
     Vector3 offset;
     public string destinationTag = "DropArea";
     public string spawnPoint;
+    public int screenSize;
+
+    public Material Spawnable;
+    public Material Spawnablent;
+
+    public List<GameObject> screenGrid = new List<GameObject>();
+
+    private void Start()
+    {
+        foreach (GameObject fooObj in GameObject.FindGameObjectsWithTag("DropArea"))
+        {
+            screenGrid.Add(fooObj);
+        }
+    }
 
     void OnMouseDown()
     {
@@ -41,7 +57,25 @@ public class GridSystemForPersonalComputer : MonoBehaviour
             spawnPoint = col.gameObject.name;
         }
     }
+/*
+    public void OntriggerStay(Collider col)
+    {
+        int i = 0;
+        screenSize = screenGrid.Count();
 
+        for (i = 0; i < (screenSize); i++)
+        {
+            if (col.gameObject.tag == destinationTag)
+            {
+                screenGrid[i].GetComponent<MeshRenderer>().material = Spawnable;
+            }
+            else
+            {
+                screenGrid[i].GetComponent<MeshRenderer>().material = Spawnablent;
+            }
+        }
+    }
+*/
     Vector3 MouseWorldPosition()
     {
         var mouseScreenPos = Input.mousePosition;
