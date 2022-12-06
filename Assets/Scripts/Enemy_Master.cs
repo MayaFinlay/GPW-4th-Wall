@@ -25,6 +25,9 @@ public class Enemy_Master : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.P))
         {
             gridPoint = snapPoints[Random.Range(0, 80)];
+            gameObject.GetComponent<EnemyAIShoot>().hasAttacked = false;
+
+
             Move();
         }
         Distance = Vector3.Distance(gridPoint.transform.position, this.transform.position);
