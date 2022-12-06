@@ -7,6 +7,9 @@ TagManager:
   - SnapPoints
   - Pushable
   - firepoint
+  - Desk
+  - PCCamera
+  - DropArea
   layers:
   - Default
   - TransparentFX
