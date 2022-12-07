@@ -7,6 +7,14 @@ TagManager:
   - SnapPoints
   - Pushable
   - firepoint
+  - Desk
+  - PCCamera
+  - DropArea
+  - Up
+  - Down
+  - Left
+  - Right
+  - Bullet
   layers:
   - Default
   - TransparentFX

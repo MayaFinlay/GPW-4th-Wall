@@ -22,7 +22,8 @@ public class snapToGrid : MonoBehaviour
         foreach (GameObject fooObj in GameObject.FindGameObjectsWithTag("Pushable"))
         {
             pushable.Add(fooObj);
-        }        
+        }
+        GridSnap();
     }
 
     public void OnTriggerExit(Collider col)
