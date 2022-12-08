@@ -15,23 +15,13 @@ public class GridSystemForPersonalComputer : MonoBehaviour
     public Material spawnablent;
 
     public GameObject node;
+    public Vector3 currentNode;
 
     public int radius;
 
     public List<GameObject> screenGrid = new List<GameObject>();
     public List<GameObject> gridToPaint = new List<GameObject>();
 
-    private void Start()
-    {
-
-        
-        
-    }
-
-    private void Update()
-    {
-        
-    }
 
     void OnMouseDown()
     {
@@ -45,7 +35,7 @@ public class GridSystemForPersonalComputer : MonoBehaviour
     }
 
     void OnMouseUp()
-    {
+    {        
         var rayOrigin = UnityEngine.Camera.main.transform.position;
         var rayDirection = MouseWorldPosition() - UnityEngine.Camera.main.transform.position;
         RaycastHit hitInfo;
@@ -53,7 +43,7 @@ public class GridSystemForPersonalComputer : MonoBehaviour
         {
             if (hitInfo.transform.tag == destinationTag)
             {
-                transform.position = hitInfo.transform.position;
+                transform.position = hitInfo.transform.position;                  
             }
         }
         transform.GetComponent<Collider>().enabled = true;
@@ -63,13 +53,14 @@ public class GridSystemForPersonalComputer : MonoBehaviour
     {
         int i = 0;
         int k = 0;
+        currentNode = transform.position;
 
         foreach (GameObject fooObj in GameObject.FindGameObjectsWithTag("DropArea"))
         {
-            screenGrid.Add(fooObj);            
+            screenGrid.Add(fooObj);
         }
-        screenSize = screenGrid.Count();
 
+        screenSize = screenGrid.Count();
         for (i = 0; i < screenSize; i++)
         {
             screenGrid[i].GetComponent<MeshRenderer>().material = spawnablent;
@@ -79,9 +70,9 @@ public class GridSystemForPersonalComputer : MonoBehaviour
         {
             spawnPoint = col.gameObject.name;
         }
-        
-        screenGrid.Sort((x, y) => Vector3.Distance(transform.position, x.transform.position).CompareTo(Vector3.Distance(transform.position, y.transform.position)));                    
-        
+
+        screenGrid.Sort((x, y) => Vector3.Distance(transform.position, x.transform.position).CompareTo(Vector3.Distance(transform.position, y.transform.position)));
+
         for (k = 0; k < 9; k++)
         {
             screenGrid[k].GetComponent<MeshRenderer>().material = spawnable;
@@ -95,6 +86,7 @@ public class GridSystemForPersonalComputer : MonoBehaviour
         mouseScreenPos.z = UnityEngine.Camera.main.WorldToScreenPoint(transform.position).z;
         return UnityEngine.Camera.main.ScreenToWorldPoint(mouseScreenPos);
     }
+
 }
     
     
