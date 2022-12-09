@@ -32,6 +32,7 @@ public class snapToGrid : MonoBehaviour
         {
             GridSnap();
         }
+
     }
 
     public void GridSnap()

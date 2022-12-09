@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class TileBlacklist : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+
+    private void OnTriggerStay(Collider col)
     {
-        
+        if (col.gameObject.tag == "SnapPoints") 
+        { 
+
+        }
     }
 }
