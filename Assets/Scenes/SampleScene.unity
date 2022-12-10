@@ -139,7 +139,7 @@ GameObject:
   - component: {fileID: 21290974}
   m_Layer: 0
   m_Name: (5,0)
-  m_TagString: DropArea
+  m_TagString: EdgeDropArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2570,7 +2570,7 @@ GameObject:
   - component: {fileID: 241709559}
   m_Layer: 0
   m_Name: (8,8)
-  m_TagString: DropArea
+  m_TagString: CornerDropArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4850,7 +4850,7 @@ GameObject:
   - component: {fileID: 395339725}
   m_Layer: 0
   m_Name: (2,8)
-  m_TagString: DropArea
+  m_TagString: EdgeDropArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5301,7 +5301,7 @@ GameObject:
   - component: {fileID: 403211484}
   m_Layer: 0
   m_Name: (0,2)
-  m_TagString: DropArea
+  m_TagString: EdgeDropArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6593,7 +6593,7 @@ GameObject:
   - component: {fileID: 463970524}
   m_Layer: 0
   m_Name: (0,8)
-  m_TagString: DropArea
+  m_TagString: CornerDropArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7917,7 +7917,7 @@ GameObject:
   - component: {fileID: 583931306}
   m_Layer: 0
   m_Name: (0,3)
-  m_TagString: DropArea
+  m_TagString: EdgeDropArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8505,7 +8505,7 @@ GameObject:
   - component: {fileID: 636556173}
   m_Layer: 0
   m_Name: (7,0)
-  m_TagString: DropArea
+  m_TagString: EdgeDropArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10413,7 +10413,7 @@ GameObject:
   - component: {fileID: 747026682}
   m_Layer: 0
   m_Name: (0,4)
-  m_TagString: DropArea
+  m_TagString: EdgeDropArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10576,13 +10576,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destinationTag: DropArea
+  edgeTag: EdgeDropArea
+  cornerTag: CornerDropArea
   spawnPoint: 
   spawnable: {fileID: 2100000, guid: 2448823e918091a4c9b734bf4bb2e637, type: 2}
   spawnablent: {fileID: 2100000, guid: 0e6f95809faa07e41b122d24c8163dd4, type: 2}
   node: {fileID: 1044194078}
-  currentNode: {x: 0, y: 0, z: 0}
   radius: 0
   screenGrid: []
+  cornerScreenGrid: []
+  edgeScreenGrid: []
+  fullScreen: []
   gridToPaint: []
 --- !u!136 &749346775
 CapsuleCollider:
@@ -11744,7 +11748,7 @@ GameObject:
   - component: {fileID: 794456965}
   m_Layer: 0
   m_Name: (4,8)
-  m_TagString: DropArea
+  m_TagString: EdgeDropArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12038,7 +12042,7 @@ GameObject:
   - component: {fileID: 808753399}
   m_Layer: 0
   m_Name: (7,8)
-  m_TagString: DropArea
+  m_TagString: EdgeDropArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12243,7 +12247,7 @@ GameObject:
   - component: {fileID: 820902627}
   m_Layer: 0
   m_Name: (0,0)
-  m_TagString: DropArea
+  m_TagString: CornerDropArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13072,7 +13076,7 @@ GameObject:
   - component: {fileID: 862720975}
   m_Layer: 0
   m_Name: (0,7)
-  m_TagString: DropArea
+  m_TagString: EdgeDropArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13263,7 +13267,7 @@ GameObject:
   - component: {fileID: 870619757}
   m_Layer: 0
   m_Name: (8,3)
-  m_TagString: DropArea
+  m_TagString: EdgeDropArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14620,7 +14624,7 @@ GameObject:
   - component: {fileID: 929266759}
   m_Layer: 0
   m_Name: (6,8)
-  m_TagString: DropArea
+  m_TagString: EdgeDropArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15727,7 +15731,7 @@ GameObject:
   - component: {fileID: 1002284463}
   m_Layer: 0
   m_Name: (3,8)
-  m_TagString: DropArea
+  m_TagString: EdgeDropArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18128,7 +18132,7 @@ GameObject:
   - component: {fileID: 1161128373}
   m_Layer: 0
   m_Name: (3,0)
-  m_TagString: DropArea
+  m_TagString: EdgeDropArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18539,7 +18543,7 @@ GameObject:
   - component: {fileID: 1195812755}
   m_Layer: 0
   m_Name: (8,6)
-  m_TagString: DropArea
+  m_TagString: EdgeDropArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19659,7 +19663,7 @@ GameObject:
   - component: {fileID: 1294320011}
   m_Layer: 0
   m_Name: (8,4)
-  m_TagString: DropArea
+  m_TagString: EdgeDropArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19998,7 +20002,7 @@ GameObject:
   - component: {fileID: 1298263760}
   m_Layer: 0
   m_Name: (8,7)
-  m_TagString: DropArea
+  m_TagString: EdgeDropArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20615,7 +20619,7 @@ GameObject:
   - component: {fileID: 1343740086}
   m_Layer: 0
   m_Name: (8,1)
-  m_TagString: DropArea
+  m_TagString: EdgeDropArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20744,7 +20748,7 @@ GameObject:
   - component: {fileID: 1345821832}
   m_Layer: 0
   m_Name: (0,5)
-  m_TagString: DropArea
+  m_TagString: EdgeDropArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -21166,7 +21170,7 @@ GameObject:
   - component: {fileID: 1366276484}
   m_Layer: 0
   m_Name: (0,6)
-  m_TagString: DropArea
+  m_TagString: EdgeDropArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22464,7 +22468,7 @@ GameObject:
   - component: {fileID: 1456792772}
   m_Layer: 0
   m_Name: (2,0)
-  m_TagString: DropArea
+  m_TagString: EdgeDropArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23364,7 +23368,7 @@ GameObject:
   - component: {fileID: 1517712846}
   m_Layer: 0
   m_Name: (8,0)
-  m_TagString: DropArea
+  m_TagString: CornerDropArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24986,7 +24990,7 @@ GameObject:
   - component: {fileID: 1618084323}
   m_Layer: 0
   m_Name: (5,8)
-  m_TagString: DropArea
+  m_TagString: EdgeDropArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26364,7 +26368,7 @@ GameObject:
   - component: {fileID: 1728203796}
   m_Layer: 0
   m_Name: (8,5)
-  m_TagString: DropArea
+  m_TagString: EdgeDropArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26493,7 +26497,7 @@ GameObject:
   - component: {fileID: 1729958355}
   m_Layer: 0
   m_Name: (1,8)
-  m_TagString: DropArea
+  m_TagString: EdgeDropArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26904,7 +26908,7 @@ GameObject:
   - component: {fileID: 1752510995}
   m_Layer: 0
   m_Name: (4,0)
-  m_TagString: DropArea
+  m_TagString: EdgeDropArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28183,7 +28187,7 @@ GameObject:
   - component: {fileID: 1867423781}
   m_Layer: 0
   m_Name: (0,1)
-  m_TagString: DropArea
+  m_TagString: EdgeDropArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28869,7 +28873,7 @@ GameObject:
   - component: {fileID: 1900633001}
   m_Layer: 0
   m_Name: (1,0)
-  m_TagString: DropArea
+  m_TagString: EdgeDropArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29578,7 +29582,7 @@ GameObject:
   - component: {fileID: 1955187079}
   m_Layer: 0
   m_Name: (8,2)
-  m_TagString: DropArea
+  m_TagString: EdgeDropArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29873,7 +29877,7 @@ GameObject:
   - component: {fileID: 1959585750}
   m_Layer: 0
   m_Name: (6,0)
-  m_TagString: DropArea
+  m_TagString: EdgeDropArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
