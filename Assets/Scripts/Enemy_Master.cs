@@ -34,7 +34,8 @@ public class Enemy_Master : MonoBehaviour
     }
 
     private void Move()
-    {       
+    {
+        
         if (Distance > 0)
         {
             _agent.SetDestination(gridPoint.transform.position);

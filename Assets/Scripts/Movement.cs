@@ -30,6 +30,11 @@ public class Movement : MonoBehaviour
             velocity.y = -2f;
         }
 
+        if (Input.GetButtonDown("Jump") && isGrounded)
+        {
+            velocity.y = 5f;
+        }
+
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
 
