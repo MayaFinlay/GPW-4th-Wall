@@ -15,8 +15,6 @@ TagManager:
   - Left
   - Right
   - Bullet
-  - CornerDropArea
-  - EdgeDropArea
   layers:
   - Default
   - TransparentFX
