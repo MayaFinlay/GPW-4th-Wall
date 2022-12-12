@@ -1143,7 +1143,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &85727862
 Transform:
   m_ObjectHideFlags: 0
@@ -10686,10 +10686,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 752271839}
-  - component: {fileID: 752271841}
-  - component: {fileID: 752271842}
   - component: {fileID: 752271843}
   - component: {fileID: 752271844}
+  - component: {fileID: 752271845}
   m_Layer: 0
   m_Name: EnemyGrunt
   m_TagString: Untagged
@@ -10714,49 +10713,6 @@ Transform:
   m_Father: {fileID: 673625884}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
---- !u!114 &752271841
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 752271836}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 893cc20aea6876d46800144bc487a9e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gridPoint: {fileID: 854808574}
-  moving: 0
-  _agent: {fileID: 752271844}
-  Distance: 0
-  snapPoints: []
---- !u!114 &752271842
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 752271836}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 644b2415dbf49d645a5624b0a5533074, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  agent: {fileID: 0}
-  player: {fileID: 1580364929}
-  GroundCheck:
-    serializedVersion: 2
-    m_Bits: 8
-  PlayerCheck:
-    serializedVersion: 2
-    m_Bits: 64
-  health: 0
-  hasAttacked: 0
-  timeBetweenAttacks: 2
-  projectile: {fileID: 510998710159678317, guid: 64de185eaf5621f42bb4ccc4e7fed892, type: 3}
-  sightRange: 10
-  playerInSightRange: 0
 --- !u!208 &752271843
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -10795,6 +10751,21 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &752271845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 752271836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59433db1b46e6fc43b5645f99fc7f0b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _agent: {fileID: 752271844}
+  allyUnit: {fileID: 1580364928}
+  closestAvailablePoint: {fileID: 0}
 --- !u!1 &754974699
 GameObject:
   m_ObjectHideFlags: 0
@@ -24554,8 +24525,8 @@ GameObject:
   - component: {fileID: 1580364931}
   - component: {fileID: 1580364936}
   - component: {fileID: 1580364935}
-  m_Layer: 6
-  m_Name: Ally 1
+  m_Layer: 0
+  m_Name: AllyGrunt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24569,7 +24540,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1580364928}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 46.9, y: 2.1, z: 24.12}
+  m_LocalPosition: {x: 3.3, y: 2.1, z: -8.22}
   m_LocalScale: {x: 1.3145, y: 1.2148, z: 1.2955}
   m_ConstrainProportionsScale: 0
   m_Children: []

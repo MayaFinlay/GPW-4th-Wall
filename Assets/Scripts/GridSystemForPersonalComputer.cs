@@ -107,6 +107,7 @@ public class GridSystemForPersonalComputer : MonoBehaviour
                 fullScreen[k].GetComponent<MeshRenderer>().material = spawnable;
             }
         }
+
         if (col.gameObject.tag == edgeTag)
         {
             for (k = 0; k < 6; k++)
