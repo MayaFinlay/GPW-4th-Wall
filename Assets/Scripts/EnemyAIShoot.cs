@@ -6,19 +6,12 @@ using UnityEngine.AI;
 public class EnemyAIShoot : MonoBehaviour
 {
     public NavMeshAgent agent;
-
     public Transform player;
-
     public LayerMask GroundCheck, PlayerCheck;
-
     public float health;
-
     public bool hasAttacked;
-
     public float timeBetweenAttacks;
     public GameObject projectile;
-
-
     public float sightRange;
     public bool playerInSightRange;
 

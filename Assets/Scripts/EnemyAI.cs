@@ -11,11 +11,23 @@ public class EnemyAI : MonoBehaviour
     int currentListSizeSniper;
     int currentListSizeTank;
 
-    public GameObject allyUnit;
+    public GameObject grunt;
+    public GameObject sniper;
+    public GameObject tank;
+    public GameObject projectile;
+
+    public List<GameObject> allyUnits = new List<GameObject>();
     public GameObject closestAvailablePoint;
 
     List<GameObject> allSnapPoints = new List<GameObject>();
 
+    private void Start()
+    {
+        foreach (GameObject fooObj in GameObject.FindGameObjectsWithTag("Ally"))
+        {
+            allyUnits.Add(fooObj);
+        }
+    }
 
     private void Update()
     {
@@ -31,11 +43,8 @@ public class EnemyAI : MonoBehaviour
         {
             currentListSizeTank = gameObject.GetComponent<TankStats>().tankAvailableMoves.Count;
         }
-        Debug.Log("update");
-
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            Debug.Log("sdogijn");
             GruntAI();
             SniperAI();
             TankAI();
@@ -46,37 +55,55 @@ public class EnemyAI : MonoBehaviour
     {
         if (gameObject.GetComponent<GruntStats>() != null)
         {
-            float minDistance = Vector3.Distance(gameObject.GetComponent<GruntStats>().gruntAvailableMoves[0].transform.position, allyUnit.transform.position);
-
-            for (int i = 0; i < currentListSizeGrunt; i++)
+            int randomUnit = Random.Range(0, 2);
+            float minDistance = Vector3.Distance(gameObject.GetComponent<GruntStats>().gruntAvailableMoves[0].transform.position, allyUnits[randomUnit].transform.position);
+            float currentDistance = Vector3.Distance(grunt.transform.position, allyUnits[randomUnit].transform.position);
+            if (currentDistance > 8)
             {
-                float distanceFromAllyUnits = Vector3.Distance(gameObject.GetComponent<GruntStats>().gruntAvailableMoves[i].transform.position, allyUnit.transform.position);
-                if (distanceFromAllyUnits < minDistance)
+                for (int i = 0; i < currentListSizeGrunt; i++)
                 {
-                    minDistance = distanceFromAllyUnits;
-                    closestAvailablePoint = gameObject.GetComponent<GruntStats>().gruntAvailableMoves[i];
+                    float distanceFromAllyUnits = Vector3.Distance(gameObject.GetComponent<GruntStats>().gruntAvailableMoves[i].transform.position, allyUnits[randomUnit].transform.position);
+                    if (distanceFromAllyUnits < minDistance)
+                    {
+                        minDistance = distanceFromAllyUnits;
+                        closestAvailablePoint = gameObject.GetComponent<GruntStats>().gruntAvailableMoves[i];
+                    }
                 }
+                _agent.SetDestination(closestAvailablePoint.transform.position);
             }
-            _agent.SetDestination(closestAvailablePoint.transform.position);
+            else if (currentDistance < 8)
+            {
+                transform.LookAt(allyUnits[randomUnit].transform.position);
+                Fire();
+            }            
         }
     }
-
+    
     void SniperAI()
     {
         if (gameObject.GetComponent<SniperStats>() != null)
         {
-            float minDistance = Vector3.Distance(gameObject.GetComponent<SniperStats>().sniperAvailableMoves[0].transform.position, allyUnit.transform.position);
-
-            for (int i = 0; i < currentListSizeSniper; i++)
+            int randomUnit = Random.Range(0, 2);
+            float minDistance = Vector3.Distance(gameObject.GetComponent<SniperStats>().sniperAvailableMoves[0].transform.position, allyUnits[randomUnit].transform.position);
+            float currentDistance = Vector3.Distance(sniper.transform.position, allyUnits[randomUnit].transform.position);
+            if (currentDistance > 15)
             {
-                float distanceFromAllyUnits = Vector3.Distance(gameObject.GetComponent<SniperStats>().sniperAvailableMoves[i].transform.position, allyUnit.transform.position);
-                if (distanceFromAllyUnits < minDistance)
+                for (int i = 0; i < currentListSizeSniper; i++)
                 {
-                    minDistance = distanceFromAllyUnits;
-                    closestAvailablePoint = gameObject.GetComponent<SniperStats>().sniperAvailableMoves[i];
+                    float distanceFromAllyUnits = Vector3.Distance(gameObject.GetComponent<SniperStats>().sniperAvailableMoves[i].transform.position, allyUnits[randomUnit].transform.position);
+                    if (distanceFromAllyUnits < minDistance)
+                    {
+                        minDistance = distanceFromAllyUnits;
+                        closestAvailablePoint = gameObject.GetComponent<SniperStats>().sniperAvailableMoves[i];
+                    }
                 }
+                _agent.SetDestination(closestAvailablePoint.transform.position);
             }
-            _agent.SetDestination(closestAvailablePoint.transform.position);
+            else if (currentDistance < 15)
+            {
+                transform.LookAt(allyUnits[randomUnit].transform.position);
+                Fire();
+            }
         }
     }
 
@@ -84,18 +111,33 @@ public class EnemyAI : MonoBehaviour
     {
         if (gameObject.GetComponent<TankStats>() != null)
         {
-            float minDistance = Vector3.Distance(gameObject.GetComponent<TankStats>().tankAvailableMoves[0].transform.position, allyUnit.transform.position);
-
-            for (int i = 0; i < currentListSizeTank; i++)
+            int randomUnit = Random.Range(0, 2);
+            float minDistance = Vector3.Distance(gameObject.GetComponent<TankStats>().tankAvailableMoves[0].transform.position, allyUnits[randomUnit].transform.position);
+            float currentDistance = Vector3.Distance(tank.transform.position, allyUnits[randomUnit].transform.position);
+            if (currentDistance > 5)
             {
-                float distanceFromAllyUnits = Vector3.Distance(gameObject.GetComponent<TankStats>().tankAvailableMoves[i].transform.position, allyUnit.transform.position);
-                if (distanceFromAllyUnits < minDistance)
+                for (int i = 0; i < currentListSizeTank; i++)
                 {
-                    minDistance = distanceFromAllyUnits;
-                    closestAvailablePoint = gameObject.GetComponent<TankStats>().tankAvailableMoves[i];
+                    float distanceFromAllyUnits = Vector3.Distance(gameObject.GetComponent<TankStats>().tankAvailableMoves[i].transform.position, allyUnits[randomUnit].transform.position);
+                    if (distanceFromAllyUnits < minDistance)
+                    {
+                        minDistance = distanceFromAllyUnits;
+                        closestAvailablePoint = gameObject.GetComponent<TankStats>().tankAvailableMoves[i];
+                    }
                 }
+                _agent.SetDestination(closestAvailablePoint.transform.position);
             }
-            _agent.SetDestination(closestAvailablePoint.transform.position);
+            else if (currentDistance < 5)
+            {
+                transform.LookAt(allyUnits[randomUnit].transform.position);
+                Fire();
+            }            
         }
+    }
+
+    void Fire()
+    {        
+        Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
+        rb.AddForce(transform.forward * 40f, ForceMode.Impulse);
     }
 }

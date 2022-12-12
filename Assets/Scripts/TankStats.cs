@@ -13,8 +13,6 @@ public class TankStats : MonoBehaviour
             if (col.gameObject.tag == "SnapPoints")
             {
                 tankAvailableMoves.Add(col.gameObject);
-                Debug.Log("Added " + gameObject.name);
-                Debug.Log("GameObjects in list: " + tankAvailableMoves.Count);
             }
         }
     }
@@ -24,8 +22,6 @@ public class TankStats : MonoBehaviour
         if (tankAvailableMoves.Contains(col.gameObject))
         {
             tankAvailableMoves.Remove(col.gameObject);
-            Debug.Log("Removed " + gameObject.name);
-            Debug.Log("GameObjects in list: " + tankAvailableMoves.Count);
         }
     }
 }

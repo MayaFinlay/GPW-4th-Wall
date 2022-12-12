@@ -13,8 +13,6 @@ public class SniperStats : MonoBehaviour
             if (col.gameObject.tag == "SnapPoints")
             {
                 sniperAvailableMoves.Add(col.gameObject);
-                Debug.Log("Added " + gameObject.name);
-                Debug.Log("GameObjects in list: " + sniperAvailableMoves.Count);
             }
         }
     }
@@ -24,8 +22,6 @@ public class SniperStats : MonoBehaviour
         if (sniperAvailableMoves.Contains(col.gameObject))
         {
             sniperAvailableMoves.Remove(col.gameObject);
-            Debug.Log("Removed " + gameObject.name);
-            Debug.Log("GameObjects in list: " + sniperAvailableMoves.Count);
         }
     }
 }

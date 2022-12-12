@@ -17,6 +17,7 @@ TagManager:
   - Bullet
   - EdgeDropArea
   - CornerDropArea
+  - Ally
   layers:
   - Default
   - TransparentFX
