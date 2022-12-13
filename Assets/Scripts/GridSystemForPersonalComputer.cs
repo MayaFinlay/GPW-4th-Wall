@@ -27,8 +27,6 @@ public class GridSystemForPersonalComputer : MonoBehaviour
     public Material spawnable;
     public Material spawnablent;
 
-    public GameObject node;
-
     public int radius;
 
     public List<GameObject> screenGrid = new List<GameObject>();
@@ -74,9 +72,12 @@ public class GridSystemForPersonalComputer : MonoBehaviour
             }            
         }      
         
-        if((Input.GetKeyDown(KeyCode.Mouse1) == true) && (gruntFireState == true))
-        {
-            GruntFire();
+        if((Input.GetKeyDown(KeyCode.Mouse1) == true) && (gruntFireState == true && Physics.Raycast(rayOrigin, rayDirection, out hitInfo)))
+        {            
+            if (hitInfo.transform.tag == destinationTag || hitInfo.transform.tag == edgeTag || hitInfo.transform.tag == cornerTag)
+            {
+                GruntFire(hitInfo.transform.gameObject.GetComponent<NodeHandler>().node.transform.position);
+            }            
         }
 
         if (Input.GetKeyDown(KeyCode.C) == true)
@@ -169,7 +170,6 @@ public class GridSystemForPersonalComputer : MonoBehaviour
                 fullScreen[k].GetComponent<MeshRenderer>().material = spawnable;
             }
         }
-
         fullScreen.Clear();
     }
 
@@ -180,8 +180,9 @@ public class GridSystemForPersonalComputer : MonoBehaviour
         return UnityEngine.Camera.main.ScreenToWorldPoint(mouseScreenPos);
     }
 
-    void GruntFire()
+    void GruntFire(Vector3 lookDirection)
     {
+        grunt.transform.LookAt(lookDirection);
         Rigidbody rb = Instantiate(projectile, grunt.transform.position, Quaternion.identity).GetComponent<Rigidbody>();
         rb.AddForce(transform.forward * 40f, ForceMode.Impulse);
     }

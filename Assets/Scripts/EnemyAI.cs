@@ -16,7 +16,9 @@ public class EnemyAI : MonoBehaviour
     public GameObject grunt;
     public GameObject sniper;
     public GameObject tank;
-    public GameObject projectile;
+    public GameObject projectileGrunt;
+    public GameObject projectileSniper;
+    public GameObject projectileTank;
 
     public List<GameObject> allyUnits = new List<GameObject>();
     public GameObject closestAvailablePoint;
@@ -82,11 +84,11 @@ public class EnemyAI : MonoBehaviour
                 var rayOrigin = this.transform.position;
                 var rayDirection = allyUnits[randomUnit].transform.position;
                 RaycastHit hitInfo;
-                if (Physics.Raycast(rayOrigin, rayDirection, out hitInfo) && hitInfo.transform.tag == "Ally")
-                {
-                    Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
+                //if (Physics.Raycast(rayOrigin, rayDirection, out hitInfo) && hitInfo.transform.tag == "Ally")
+                //{
+                    Rigidbody rb = Instantiate(projectileGrunt, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
                     rb.AddForce(transform.forward * 40f, ForceMode.Impulse);
-                }
+                //}
             }            
         }
     }
@@ -117,11 +119,11 @@ public class EnemyAI : MonoBehaviour
                 var rayOrigin = this.transform.position;
                 var rayDirection = allyUnits[randomUnit].transform.position;
                 RaycastHit hitInfo;
-                if (Physics.Raycast(rayOrigin, rayDirection, out hitInfo) && hitInfo.transform.tag == "Ally")
-                {
-                    Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
+                //if (Physics.Raycast(rayOrigin, rayDirection, out hitInfo) && hitInfo.transform.tag == "Ally")
+                //{
+                    Rigidbody rb = Instantiate(projectileSniper, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
                     rb.AddForce(transform.forward * 40f, ForceMode.Impulse);
-                }
+                //}
             }
         }
     }
@@ -152,12 +154,11 @@ public class EnemyAI : MonoBehaviour
                 var rayOrigin = this.transform.position;
                 var rayDirection = allyUnits[randomUnit].transform.position;
                 RaycastHit hitInfo;
-                if (Physics.Raycast(rayOrigin, rayDirection, out hitInfo) && hitInfo.transform.tag == "Ally")
-                {
-                    Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
+                //if (Physics.Raycast(rayOrigin, rayDirection, out hitInfo) && hitInfo.transform.tag == "Ally")
+                //{
+                    Rigidbody rb = Instantiate(projectileTank, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
                     rb.AddForce(transform.forward * 40f, ForceMode.Impulse);
-                }
-
+                //}
             }            
         }
     }
