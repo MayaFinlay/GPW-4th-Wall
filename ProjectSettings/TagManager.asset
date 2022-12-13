@@ -18,6 +18,11 @@ TagManager:
   - EdgeDropArea
   - CornerDropArea
   - Ally
+  - SnapPointsBlacklist
+  - Enemy
+  - GruntToken
+  - SniperToken
+  - TankToken
   layers:
   - Default
   - TransparentFX

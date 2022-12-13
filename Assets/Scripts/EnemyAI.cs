@@ -11,6 +11,8 @@ public class EnemyAI : MonoBehaviour
     int currentListSizeSniper;
     int currentListSizeTank;
 
+    //bool fireState;
+
     public GameObject grunt;
     public GameObject sniper;
     public GameObject tank;
@@ -28,6 +30,7 @@ public class EnemyAI : MonoBehaviour
         {
             allyUnits.Add(fooObj);
         }
+        //fireState = false;
     }
 
     private void Update()

@@ -15,6 +15,15 @@ public class GridSystemForPersonalComputer : MonoBehaviour
     int cornerSize;
     int edgeSize;
 
+    public bool gruntFireState;
+    public GameObject grunt;
+    public bool sniperFireState;
+    public GameObject sniper;
+    public bool tankFireState;
+    public GameObject tank;
+
+    public GameObject projectile;
+
     public Material spawnable;
     public Material spawnablent;
 
@@ -28,15 +37,54 @@ public class GridSystemForPersonalComputer : MonoBehaviour
     public List<GameObject> fullScreen = new List<GameObject>();
     public List<GameObject> gridToPaint = new List<GameObject>();
 
-    void OnMouseDown()
+    private void Start()
     {
-        offset = transform.position - MouseWorldPosition();
-        transform.GetComponent<Collider>().enabled = false;
+        gruntFireState = false;
+        sniperFireState = false;
+        tankFireState = false;
     }
 
-    void OnMouseDrag()
+    private void Update()
     {
-        transform.position = MouseWorldPosition() + offset;
+        var rayOrigin = UnityEngine.Camera.main.transform.position;
+        var rayDirection = MouseWorldPosition() - UnityEngine.Camera.main.transform.position;
+        RaycastHit hitInfo;
+        if ((Input.GetKeyDown(KeyCode.Mouse1) == true) && (gruntFireState == false || sniperFireState == false || tankFireState || false))
+        {
+            if (Physics.Raycast(rayOrigin, rayDirection, out hitInfo))
+            {
+                if (hitInfo.transform.tag == "GruntToken")
+                {
+                    gruntFireState = true;
+                    sniperFireState = false;
+                    tankFireState = false;
+                }
+                if (hitInfo.transform.tag == "SniperToken")
+                {
+                    gruntFireState = false;
+                    sniperFireState = true;
+                    tankFireState = false;
+                }
+                if (hitInfo.transform.tag == "TankToken")
+                {
+                    gruntFireState = false;
+                    sniperFireState = false;
+                    tankFireState = true;
+                }
+            }            
+        }      
+        
+        if((Input.GetKeyDown(KeyCode.Mouse1) == true) && (gruntFireState == true))
+        {
+            GruntFire();
+        }
+
+        if (Input.GetKeyDown(KeyCode.C) == true)
+        {
+            gruntFireState = false;
+            sniperFireState = false;
+            tankFireState = false;
+        }
     }
 
     void OnMouseUp()
@@ -51,7 +99,7 @@ public class GridSystemForPersonalComputer : MonoBehaviour
                 transform.position = hitInfo.transform.position;
             }
         }
-        transform.GetComponent<Collider>().enabled = true;
+        transform.GetComponent<Collider>().enabled = true;        
     }
 
     public void OnTriggerEnter(Collider col)
@@ -130,6 +178,12 @@ public class GridSystemForPersonalComputer : MonoBehaviour
         var mouseScreenPos = Input.mousePosition;
         mouseScreenPos.z = UnityEngine.Camera.main.WorldToScreenPoint(transform.position).z;
         return UnityEngine.Camera.main.ScreenToWorldPoint(mouseScreenPos);
+    }
+
+    void GruntFire()
+    {
+        Rigidbody rb = Instantiate(projectile, grunt.transform.position, Quaternion.identity).GetComponent<Rigidbody>();
+        rb.AddForce(transform.forward * 40f, ForceMode.Impulse);
     }
 }
 
