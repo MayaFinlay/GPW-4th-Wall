@@ -76,7 +76,14 @@ public class EnemyAI : MonoBehaviour
             else if (currentDistance < 8)
             {
                 transform.LookAt(allyUnits[randomUnit].transform.position);
-                Fire();
+                var rayOrigin = this.transform.position;
+                var rayDirection = allyUnits[randomUnit].transform.position;
+                RaycastHit hitInfo;
+                if (Physics.Raycast(rayOrigin, rayDirection, out hitInfo) && hitInfo.transform.tag == "Ally")
+                {
+                    Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
+                    rb.AddForce(transform.forward * 40f, ForceMode.Impulse);
+                }
             }            
         }
     }
@@ -104,7 +111,14 @@ public class EnemyAI : MonoBehaviour
             else if (currentDistance < 15)
             {
                 transform.LookAt(allyUnits[randomUnit].transform.position);
-                Fire();
+                var rayOrigin = this.transform.position;
+                var rayDirection = allyUnits[randomUnit].transform.position;
+                RaycastHit hitInfo;
+                if (Physics.Raycast(rayOrigin, rayDirection, out hitInfo) && hitInfo.transform.tag == "Ally")
+                {
+                    Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
+                    rb.AddForce(transform.forward * 40f, ForceMode.Impulse);
+                }
             }
         }
     }
@@ -132,14 +146,16 @@ public class EnemyAI : MonoBehaviour
             else if (currentDistance < 5)
             {
                 transform.LookAt(allyUnits[randomUnit].transform.position);
-                Fire();
+                var rayOrigin = this.transform.position;
+                var rayDirection = allyUnits[randomUnit].transform.position;
+                RaycastHit hitInfo;
+                if (Physics.Raycast(rayOrigin, rayDirection, out hitInfo) && hitInfo.transform.tag == "Ally")
+                {
+                    Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
+                    rb.AddForce(transform.forward * 40f, ForceMode.Impulse);
+                }
+
             }            
         }
-    }
-
-    void Fire()
-    {        
-        Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
-        rb.AddForce(transform.forward * 40f, ForceMode.Impulse);
     }
 }

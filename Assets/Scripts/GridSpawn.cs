@@ -16,7 +16,22 @@ public class GridSpawn : MonoBehaviour
         {
             snapPoints.Add(fooObj);
         }
+    }
 
+    public void OnTriggerEnter(Collider col)
+    {
+        if (col.gameObject.tag == "SnapPoints")
+        {
+            col.gameObject.tag = "SnapPointsBlacklist";
+        }
+    }
+
+    public void OnTriggerExit(Collider col)
+    {
+        if (col.gameObject.tag == "SnapPointsBlacklist")
+        {
+            col.gameObject.tag = "SnapPoints";
+        }
     }
 
     void Update()
@@ -268,6 +283,5 @@ public class GridSpawn : MonoBehaviour
                 transform.position = snapPoints[0].transform.position;
                 break;
         }
-
     }
 }
