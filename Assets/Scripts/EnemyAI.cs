@@ -19,6 +19,7 @@ public class EnemyAI : MonoBehaviour
     public List<GameObject> allyUnits = new List<GameObject>();
     public GameObject closestAvailablePoint;
 
+    public List<GameObject> gridBlacklist = new List<GameObject>();
     List<GameObject> allSnapPoints = new List<GameObject>();
 
     private void Start()
@@ -49,6 +50,7 @@ public class EnemyAI : MonoBehaviour
             SniperAI();
             TankAI();
         }
+
     }
 
     void GruntAI()
@@ -63,7 +65,7 @@ public class EnemyAI : MonoBehaviour
                 for (int i = 0; i < currentListSizeGrunt; i++)
                 {
                     float distanceFromAllyUnits = Vector3.Distance(gameObject.GetComponent<GruntStats>().gruntAvailableMoves[i].transform.position, allyUnits[randomUnit].transform.position);
-                    if (distanceFromAllyUnits < minDistance)
+                    if (distanceFromAllyUnits < minDistance && gameObject.GetComponent<GruntStats>().gruntAvailableMoves[i].tag == "SnapPoints")
                     {
                         minDistance = distanceFromAllyUnits;
                         closestAvailablePoint = gameObject.GetComponent<GruntStats>().gruntAvailableMoves[i];
@@ -91,7 +93,7 @@ public class EnemyAI : MonoBehaviour
                 for (int i = 0; i < currentListSizeSniper; i++)
                 {
                     float distanceFromAllyUnits = Vector3.Distance(gameObject.GetComponent<SniperStats>().sniperAvailableMoves[i].transform.position, allyUnits[randomUnit].transform.position);
-                    if (distanceFromAllyUnits < minDistance)
+                    if (distanceFromAllyUnits < minDistance && gameObject.GetComponent<SniperStats>().sniperAvailableMoves[i].tag == "SnapPoints")
                     {
                         minDistance = distanceFromAllyUnits;
                         closestAvailablePoint = gameObject.GetComponent<SniperStats>().sniperAvailableMoves[i];
@@ -119,7 +121,7 @@ public class EnemyAI : MonoBehaviour
                 for (int i = 0; i < currentListSizeTank; i++)
                 {
                     float distanceFromAllyUnits = Vector3.Distance(gameObject.GetComponent<TankStats>().tankAvailableMoves[i].transform.position, allyUnits[randomUnit].transform.position);
-                    if (distanceFromAllyUnits < minDistance)
+                    if (distanceFromAllyUnits < minDistance && gameObject.GetComponent<TankStats>().tankAvailableMoves[i].tag == "SnapPoints")
                     {
                         minDistance = distanceFromAllyUnits;
                         closestAvailablePoint = gameObject.GetComponent<TankStats>().tankAvailableMoves[i];

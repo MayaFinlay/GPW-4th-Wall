@@ -11,7 +11,7 @@ public class GruntStats : MonoBehaviour
     {
         if (!gruntAvailableMoves.Contains(col.gameObject))
         {
-            if (col.gameObject.tag == "SnapPoints")
+            if (col.gameObject.tag == "SnapPoints" || col.gameObject.tag == "SnapPointsBlackList")
             {
                 gruntAvailableMoves.Add(col.gameObject);
             }

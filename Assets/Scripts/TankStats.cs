@@ -10,7 +10,7 @@ public class TankStats : MonoBehaviour
     {
         if (!tankAvailableMoves.Contains(col.gameObject))
         {
-            if (col.gameObject.tag == "SnapPoints")
+            if (col.gameObject.tag == "SnapPoints" || col.gameObject.tag == "SnapPointsBlackList")
             {
                 tankAvailableMoves.Add(col.gameObject);
             }

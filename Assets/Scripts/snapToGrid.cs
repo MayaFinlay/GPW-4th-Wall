@@ -9,6 +9,7 @@ public class snapToGrid : MonoBehaviour
     int pushableSize;
     public List<GameObject> snapPoints = new List<GameObject>();
     public List<GameObject> pushable = new List<GameObject>();
+    public List<GameObject> blacklist = new List<GameObject>();
     public float distance;
     public float minDistance;
     public Vector3 closestSnap;
@@ -31,6 +32,29 @@ public class snapToGrid : MonoBehaviour
         if (col.transform.tag == "Player")
         {
             GridSnap();
+        }
+        if (blacklist.Contains(col.gameObject))
+        {
+            blacklist.Remove(col.gameObject);
+            for (int i = 0; i < blacklist.Count(); i++)
+            {
+                blacklist[i].tag = "SnapPoints";
+            }
+        }
+    }
+
+    public void OnTriggerEnter(Collider col)
+    {
+        if (!blacklist.Contains(col.gameObject))
+        {
+            if (col.gameObject.tag == "SnapPoints")
+            {
+                blacklist.Add(col.gameObject);
+                for (int i = 0; i < blacklist.Count(); i++)
+                {
+                    blacklist[i].tag = "SnapPointsBlacklist";
+                }
+            }
         }
     }
 

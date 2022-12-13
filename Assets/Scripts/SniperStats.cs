@@ -10,7 +10,7 @@ public class SniperStats : MonoBehaviour
     {
         if (!sniperAvailableMoves.Contains(col.gameObject))
         {
-            if (col.gameObject.tag == "SnapPoints")
+            if (col.gameObject.tag == "SnapPoints" || col.gameObject.tag == "SnapPointsBlackList")
             {
                 sniperAvailableMoves.Add(col.gameObject);
             }
