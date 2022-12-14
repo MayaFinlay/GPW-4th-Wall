@@ -11,6 +11,9 @@ public class EnemyAI : MonoBehaviour
     int currentListSizeSniper;
     int currentListSizeTank;
 
+    public Animator enemyAnimator;
+
+
     //bool fireState;
 
     public GameObject grunt;
@@ -25,6 +28,11 @@ public class EnemyAI : MonoBehaviour
 
     public List<GameObject> gridBlacklist = new List<GameObject>();
     List<GameObject> allSnapPoints = new List<GameObject>();
+
+    private void Awake()
+    {
+        enemyAnimator = GetComponent<Animator>();
+    }
 
     private void Start()
     {
@@ -75,8 +83,27 @@ public class EnemyAI : MonoBehaviour
                         minDistance = distanceFromAllyUnits;
                         closestAvailablePoint = gameObject.GetComponent<GruntStats>().gruntAvailableMoves[i];
                     }
-                }
+                }         
+
                 _agent.SetDestination(closestAvailablePoint.transform.position);
+
+                enemyAnimator.SetBool("Attack", false);
+                enemyAnimator.SetBool("Move", true); // take out when the character can stop
+
+                /* Animation cannot stop - tried the following methods
+                if (_agent.transform.position == closestAvailablePoint.transform.position)
+                if (_agent.pathStatus==NavMeshPathStatus.completed)
+                if (!_agent.pathPending)
+                if (_agent.distanceRemaining < _agent.stoppingDistance)
+                {
+                    enemyAnimator.SetBool("Move", false);
+                }
+                else
+                {
+                    enemyAnimator.SetBool("Move", true);
+                }
+                */
+
             }
             else if (currentDistance < 8)
             {
@@ -90,9 +117,16 @@ public class EnemyAI : MonoBehaviour
                     //{
                         Rigidbody rb = Instantiate(projectileSniper, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
                         rb.AddForce(transform.forward * 40f, ForceMode.Impulse);
-                    //}
-                //}
-            }            
+
+                enemyAnimator.SetBool("Attack", true);
+                enemyAnimator.SetBool("Move", false);
+
+            }
+            else
+            {
+                enemyAnimator.SetBool("Move", false);
+                enemyAnimator.SetBool("Attack", false);
+            }
         }
     }
     
@@ -115,6 +149,23 @@ public class EnemyAI : MonoBehaviour
                     }
                 }
                 _agent.SetDestination(closestAvailablePoint.transform.position);
+
+                enemyAnimator.SetBool("Attack", false);
+                enemyAnimator.SetBool("Move", true); // take out when the character can stop
+
+                /* Animation cannot stop - tried the following methods
+                if (_agent.transform.position == closestAvailablePoint.transform.position)
+                if (_agent.pathStatus==NavMeshPathStatus.completed)
+                if (!_agent.pathPending)
+                if (_agent.distanceRemaining < _agent.stoppingDistance)
+                {
+                    enemyAnimator.SetBool("Move", false);
+                }
+                else
+                {
+                    enemyAnimator.SetBool("Move", true);
+                }
+                */
             }
             else if (currentDistance < 15)
             {
@@ -128,8 +179,17 @@ public class EnemyAI : MonoBehaviour
                     //{
                         Rigidbody rb = Instantiate(projectileSniper, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
                         rb.AddForce(transform.forward * 40f, ForceMode.Impulse);
-                    //}
                 //}
+                //}
+
+                enemyAnimator.SetBool("Attack", true);
+                enemyAnimator.SetBool("Move", false);
+
+            }
+            else
+            {
+                enemyAnimator.SetBool("Move", false);
+                enemyAnimator.SetBool("Attack", false);
             }
         }
     }
@@ -153,6 +213,23 @@ public class EnemyAI : MonoBehaviour
                     }
                 }
                 _agent.SetDestination(closestAvailablePoint.transform.position);
+
+                enemyAnimator.SetBool("Attack", false);
+                enemyAnimator.SetBool("Move", true); // take out when the character can stop
+
+                /* Animation cannot stop - tried the following methods
+                if (_agent.transform.position == closestAvailablePoint.transform.position)
+                if (_agent.pathStatus==NavMeshPathStatus.completed)
+                if (!_agent.pathPending)
+                if (_agent.distanceRemaining < _agent.stoppingDistance)
+                {
+                    enemyAnimator.SetBool("Move", false);
+                }
+                else
+                {
+                    enemyAnimator.SetBool("Move", true);
+                }
+                */
             }
             else if (currentDistance < 5)
             {
@@ -162,7 +239,16 @@ public class EnemyAI : MonoBehaviour
                 //RaycastHit hitInfo;
                 Rigidbody rb = Instantiate(projectileSniper, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
                 rb.AddForce(transform.forward * 40f, ForceMode.Impulse);
-            }            
-        }
+
+                enemyAnimator.SetBool("Attack", true);
+                enemyAnimator.SetBool("Move", false);
+
+            }
+            else
+            {
+                enemyAnimator.SetBool("Move", false);
+                enemyAnimator.SetBool("Shoot", false);
+            }
+        }            
     }
 }
