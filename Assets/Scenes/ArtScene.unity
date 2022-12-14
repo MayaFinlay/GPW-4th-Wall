@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -37,8 +37,8 @@ RenderSettings:
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
-  m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_Sun: {fileID: 0}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3526,15 +3526,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb8078b3c770b5f41aabb4679b5ec6c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 388468668}
-  gravity: -10
-  speed: 10
-  isGrounded: 0
-  groundCheck: {fileID: 1172419560}
-  groundDistance: 0.5
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 8
 --- !u!114 &388468671
 MonoBehaviour:
   m_ObjectHideFlags: 0
