@@ -185,7 +185,7 @@ public class GridSystemForPersonalComputer : MonoBehaviour
     {
         grunt.transform.LookAt(lookDirection);
         Rigidbody rb = Instantiate(projectile, grunt.transform.position, Quaternion.identity).GetComponent<Rigidbody>();
-        rb.AddForce(transform.forward * 40f, ForceMode.Impulse);
+        rb.AddForce(grunt.transform.forward * 40f, ForceMode.Impulse);
     }
 }
 
