@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class AllyHealth : MonoBehaviour
 {
-    public int health = 100;
-
+    public int health;
 
     public void OnTriggerEnter(Collider col)
     {
@@ -14,5 +13,4 @@ public class AllyHealth : MonoBehaviour
             health -= 50;
         }
     }
-
 }

@@ -147,7 +147,7 @@ public class GridSystemForPersonalComputer : MonoBehaviour
         }
 
         fullScreen.Sort((x, y) => Vector3.Distance(transform.position, x.transform.position).CompareTo(Vector3.Distance(transform.position, y.transform.position)));
-
+/*
         if (col.gameObject.tag == destinationTag)
         {
             for (k = 0; k < 9; k++)
@@ -171,6 +171,7 @@ public class GridSystemForPersonalComputer : MonoBehaviour
             }
         }
         fullScreen.Clear();
+*/
     }
 
     Vector3 MouseWorldPosition()
