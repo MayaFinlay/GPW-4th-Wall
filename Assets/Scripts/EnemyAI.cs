@@ -62,7 +62,7 @@ public class EnemyAI : MonoBehaviour
     {
         if (gameObject.GetComponent<GruntStats>() != null)
         {
-            int randomUnit = Random.Range(0, 2);
+            int randomUnit = Random.Range(0, 3);
             float minDistance = Vector3.Distance(gameObject.GetComponent<GruntStats>().gruntAvailableMoves[0].transform.position, allyUnits[randomUnit].transform.position);
             float currentDistance = Vector3.Distance(grunt.transform.position, allyUnits[randomUnit].transform.position);
             if (currentDistance > 8)
@@ -100,7 +100,7 @@ public class EnemyAI : MonoBehaviour
     {
         if (gameObject.GetComponent<SniperStats>() != null)
         {
-            int randomUnit = Random.Range(0, 2);
+            int randomUnit = Random.Range(0, 3);
             float minDistance = Vector3.Distance(gameObject.GetComponent<SniperStats>().sniperAvailableMoves[0].transform.position, allyUnits[randomUnit].transform.position);
             float currentDistance = Vector3.Distance(sniper.transform.position, allyUnits[randomUnit].transform.position);
             if (currentDistance > 15)
@@ -138,7 +138,7 @@ public class EnemyAI : MonoBehaviour
     {
         if (gameObject.GetComponent<TankStats>() != null)
         {
-            int randomUnit = Random.Range(0, 2);
+            int randomUnit = Random.Range(0, 3);
             float minDistance = Vector3.Distance(gameObject.GetComponent<TankStats>().tankAvailableMoves[0].transform.position, allyUnits[randomUnit].transform.position);
             float currentDistance = Vector3.Distance(tank.transform.position, allyUnits[randomUnit].transform.position);
             if (currentDistance > 5)

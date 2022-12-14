@@ -6,7 +6,6 @@ public class GridSpawn : MonoBehaviour
 {
     public GameObject token;
 
-    public bool fireState;
     public GameObject projectile;
 
     public string spawn;
@@ -22,7 +21,6 @@ public class GridSpawn : MonoBehaviour
         {
             snapPoints.Add(fooObj);
         }
-        fireState = false;
     }
 
     public void OnTriggerEnter(Collider col)

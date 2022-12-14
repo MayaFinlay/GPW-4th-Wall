@@ -23,6 +23,8 @@ TagManager:
   - GruntToken
   - SniperToken
   - TankToken
+  - Base
+  - wall
   layers:
   - Default
   - TransparentFX
