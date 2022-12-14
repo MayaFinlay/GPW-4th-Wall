@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -1869231169962179748}
   m_Layer: 0
   m_Name: allyProjectile
-  m_TagString: Untagged
+  m_TagString: allyBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -25,6 +25,7 @@ TagManager:
   - TankToken
   - Base
   - wall
+  - allyBullet
   layers:
   - Default
   - TransparentFX
