@@ -83,7 +83,7 @@ public class EnemyAI : MonoBehaviour
                 transform.LookAt(allyUnits[randomUnit].transform.position);
                 var rayOrigin = this.transform.position;
                 var rayDirection = allyUnits[randomUnit].transform.position;
-                RaycastHit hitInfo;
+                //RaycastHit hitInfo;
                 //if (Physics.Raycast(rayOrigin, rayDirection, out hitInfo))
                 //{
                     //if (hitInfo.transform.tag != "Pushable")
@@ -121,7 +121,7 @@ public class EnemyAI : MonoBehaviour
                 transform.LookAt(allyUnits[randomUnit].transform.position);
                 var rayOrigin = this.transform.position;
                 var rayDirection = allyUnits[randomUnit].transform.position;
-                RaycastHit hitInfo;
+                //RaycastHit hitInfo;
                 //if (Physics.Raycast(rayOrigin, rayDirection, out hitInfo))
                 //{
                     //if (hitInfo.transform.tag != "Pushable")
@@ -159,15 +159,9 @@ public class EnemyAI : MonoBehaviour
                 transform.LookAt(allyUnits[randomUnit].transform.position);
                 var rayOrigin = this.transform.position;
                 var rayDirection = allyUnits[randomUnit].transform.position;
-                RaycastHit hitInfo;
-                //if (Physics.Raycast(rayOrigin, rayDirection, out hitInfo))
-                //{
-                //    if (hitInfo.transform.tag != "Pushable")
-                //    {
-                        Rigidbody rb = Instantiate(projectileSniper, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
-                        rb.AddForce(transform.forward * 40f, ForceMode.Impulse);
-                //    }
-                //}
+                //RaycastHit hitInfo;
+                Rigidbody rb = Instantiate(projectileSniper, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
+                rb.AddForce(transform.forward * 40f, ForceMode.Impulse);
             }            
         }
     }

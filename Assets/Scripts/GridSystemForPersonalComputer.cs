@@ -10,30 +10,30 @@ public class GridSystemForPersonalComputer : MonoBehaviour
     public string destinationTag = "DropArea";
     public string edgeTag = "EdgeDropArea";
     public string cornerTag = "CornerDropArea";
-    public string spawnPoint;
-    int screenSize;
-    int cornerSize;
-    int edgeSize;
+    [SerializeField] public string spawnPoint;
+    [SerializeField] int screenSize;
+    [SerializeField] int cornerSize;
+    [SerializeField] int edgeSize;
 
-    public bool gruntFireState;
-    public GameObject grunt;
-    public bool sniperFireState;
-    public GameObject sniper;
-    public bool tankFireState;
-    public GameObject tank;
+    [SerializeField] public bool gruntFireState;
+    [SerializeField] public GameObject grunt;
+    [SerializeField] public bool sniperFireState;
+    [SerializeField] public GameObject sniper;
+    [SerializeField] public bool tankFireState;
+    [SerializeField] public GameObject tank;
 
-    public GameObject projectile;
+    [SerializeField] public GameObject projectile;
 
-    public Material spawnable;
-    public Material spawnablent;
+    [SerializeField] public Material spawnable;
+    [SerializeField] public Material spawnablent;
 
-    public int radius;
+    [SerializeField] public int radius;
 
-    public List<GameObject> screenGrid = new List<GameObject>();
-    public List<GameObject> cornerScreenGrid = new List<GameObject>();
-    public List<GameObject> edgeScreenGrid = new List<GameObject>();
-    public List<GameObject> fullScreen = new List<GameObject>();
-    public List<GameObject> gridToPaint = new List<GameObject>();
+    [SerializeField] public List<GameObject> screenGrid = new List<GameObject>();
+    [SerializeField] public List<GameObject> cornerScreenGrid = new List<GameObject>();
+    [SerializeField] public List<GameObject> edgeScreenGrid = new List<GameObject>();
+    [SerializeField] public List<GameObject> fullScreen = new List<GameObject>();
+    [SerializeField] public List<GameObject> gridToPaint = new List<GameObject>();
 
     private void Start()
     {
@@ -70,14 +70,30 @@ public class GridSystemForPersonalComputer : MonoBehaviour
                     tankFireState = true;
                 }
             }            
-        }      
-        
-        if((Input.GetKeyDown(KeyCode.Mouse1) == true) && (gruntFireState == true && Physics.Raycast(rayOrigin, rayDirection, out hitInfo)))
-        {            
+        }
+
+        if ((Input.GetKeyDown(KeyCode.Mouse1) == true) && (gruntFireState == true && Physics.Raycast(rayOrigin, rayDirection, out hitInfo)))
+        {
             if (hitInfo.transform.tag == destinationTag || hitInfo.transform.tag == edgeTag || hitInfo.transform.tag == cornerTag)
             {
                 GruntFire(hitInfo.transform.gameObject.GetComponent<NodeHandler>().node.transform.position);
-            }            
+            }
+        }
+
+        if ((Input.GetKeyDown(KeyCode.Mouse1) == true) && (sniperFireState == true && Physics.Raycast(rayOrigin, rayDirection, out hitInfo)))
+        {
+            if (hitInfo.transform.tag == destinationTag || hitInfo.transform.tag == edgeTag || hitInfo.transform.tag == cornerTag)
+            {
+                SniperFire(hitInfo.transform.gameObject.GetComponent<NodeHandler>().node.transform.position);
+            }
+        }
+
+        if ((Input.GetKeyDown(KeyCode.Mouse1) == true) && (tankFireState == true && Physics.Raycast(rayOrigin, rayDirection, out hitInfo)))
+        {
+            if (hitInfo.transform.tag == destinationTag || hitInfo.transform.tag == edgeTag || hitInfo.transform.tag == cornerTag)
+            {
+                TankFire(hitInfo.transform.gameObject.GetComponent<NodeHandler>().node.transform.position);
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.C) == true)
@@ -106,7 +122,7 @@ public class GridSystemForPersonalComputer : MonoBehaviour
     public void OnTriggerEnter(Collider col)
     {
         int i = 0;
-        int k = 0;
+        //int k = 0;
 
         foreach (GameObject fooObj in GameObject.FindGameObjectsWithTag("DropArea"))
         {
@@ -186,6 +202,20 @@ public class GridSystemForPersonalComputer : MonoBehaviour
         grunt.transform.LookAt(lookDirection);
         Rigidbody rb = Instantiate(projectile, grunt.transform.position, Quaternion.identity).GetComponent<Rigidbody>();
         rb.AddForce(grunt.transform.forward * 40f, ForceMode.Impulse);
+    }
+
+    void SniperFire(Vector3 lookDirection)
+    {
+        sniper.transform.LookAt(lookDirection);
+        Rigidbody rb = Instantiate(projectile, sniper.transform.position, Quaternion.identity).GetComponent<Rigidbody>();
+        rb.AddForce(sniper.transform.forward * 40f, ForceMode.Impulse);
+    }
+
+    void TankFire(Vector3 lookDirection)
+    {
+        tank.transform.LookAt(lookDirection);
+        Rigidbody rb = Instantiate(projectile, tank.transform.position, Quaternion.identity).GetComponent<Rigidbody>();
+        rb.AddForce(tank.transform.forward * 40f, ForceMode.Impulse);
     }
 }
 
