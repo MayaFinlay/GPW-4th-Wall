@@ -25,7 +25,7 @@ public class EnemyHealth : MonoBehaviour
 
     public void OnTriggerEnter(Collider col)
     {
-        if (col.gameObject.tag == "allyBullet" && col.attachedRigidbody.gameObject)
+        if (col.gameObject.CompareTag("allyBullet"))
         {
             healthbar.HealthbarFunction(maxHealth, currentHealth);
             currentHealth -= 10;
