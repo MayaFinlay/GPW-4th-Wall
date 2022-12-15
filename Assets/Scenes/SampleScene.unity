@@ -10902,7 +10902,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 571385123}
   m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.48, y: 5.07, z: 14.52}
+  m_LocalPosition: {x: 0.48, y: 5.07, z: 14.8}
   m_LocalScale: {x: 1.5500003, y: 1.55, z: 1.5500003}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -13919,7 +13919,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 752271836}
   m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 3.361, y: 5.08, z: 14.51}
+  m_LocalPosition: {x: 3.361, y: 5.08, z: 14.79}
   m_LocalScale: {x: 1.5500003, y: 1.55, z: 1.5500003}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -15542,7 +15542,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62f1e94dfe0026547939cfa206f0f672, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 500
+  maxHealth: 150
+  currentHealth: 150
+  unit: {fileID: 801935829}
+  healthbar: {fileID: 1700863117}
 --- !u!54 &801935833
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -29547,7 +29550,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62f1e94dfe0026547939cfa206f0f672, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 250
+  maxHealth: 90
+  currentHealth: 90
+  unit: {fileID: 1580364928}
+  healthbar: {fileID: 1164301464}
 --- !u!114 &1580364936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38611,7 +38617,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62f1e94dfe0026547939cfa206f0f672, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  maxHealth: 60
+  currentHealth: 60
+  unit: {fileID: 2111269208}
+  healthbar: {fileID: 1164301464}
 --- !u!54 &2111269212
 Rigidbody:
   m_ObjectHideFlags: 0

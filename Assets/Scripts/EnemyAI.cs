@@ -63,7 +63,14 @@ public class EnemyAI : MonoBehaviour
             SniperAI();
             TankAI();
         }
-
+        if (_agent.velocity.magnitude < 0.1)
+        {
+            enemyAnimator.SetBool("Move", false);
+        }
+        else
+        {
+            enemyAnimator.SetBool("Move", true);
+        }
     }
 
     void GruntAI()
